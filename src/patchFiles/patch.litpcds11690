@@ -1,0 +1,10 @@
+--- puppet_agent_mgr.rb	2015-10-15 17:43:53.000000000 +0200
++++ util/puppet_agent_mgr.rb	2015-10-15 17:39:24.000000000 +0200
+@@ -359,6 +359,7 @@ module MCollective
+ 
+         if has_process_for_pid?(pid)
+           begin
++            sleep 5
+             ::Process.kill("USR1", Integer(pid))
+           rescue Exception => e
+             raise "Failed to signal the puppet agent at pid " \
